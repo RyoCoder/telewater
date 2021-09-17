@@ -44,5 +44,5 @@ if __name__ == "__main__":
             while True:
                 time.sleep(2)
         except KeyboardInterrupt:
-            print("Bots will continue running in background even if you run CTRL + C")
-            print("To stop all bots run \n\tpkill screen")
+            print("Các bot sẽ tiếp tục chạy trong nền ngay cả khi bạn chạy CTRL + C")
+            print("Để dừng tất cả các bot chạy \n\tpkill screen")
