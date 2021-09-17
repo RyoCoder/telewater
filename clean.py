@@ -16,8 +16,8 @@ def cleanup(*args):
 
 
 if __name__ == '__main__':
-    input("The gnu screens running all bots of bots.yml will be stopped! ↵")
-    input("The cache folders of each bot will be deleted ↵")
+    input("Các màn hình gnu đang chạy tất cả các chương trình của bots.yml sẽ bị dừng! ↵")
+    input("Các thư mục bộ nhớ đệm của mỗi bot sẽ bị xóa ↵")
     for botname in get_bots().keys():
         delete_screen(botname)
         cleanup(botname)
