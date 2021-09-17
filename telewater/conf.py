@@ -5,7 +5,7 @@ from watermark import Position
 
 
 class Config(BaseModel):
-    watermark: str = "https://user-images.githubusercontent.com/66209958/120103496-7b59a280-c16d-11eb-9590-3ad6b55e163c.png"
+    watermark: str = "https://raw.githubusercontent.com/RyoCoder/telewater/main/taoanhdep_logo_pornhub.jpg"
     frame_rate: int = 15
     preset: str = "ultrafast"
     position: Position = Position.centre
@@ -14,27 +14,27 @@ class Config(BaseModel):
     def validate_preset(val):
         allowed = ["ultrafast", "fast", "medium", "slow"]
         if not val in allowed:
-            raise ValueError(f"Choose preset from {allowed}")
+            raise ValueError(f"Chọn cài đặt trước từ {allowed}")
         return val
 
 
 START = """I am alive!"""
 
 HELP = """
-Using the bot is very simple. Just send a photo, video or gif to the bot. The bot will reply with the watermarked media.
+Sử dụng bot rất đơn giản. Chỉ cần gửi ảnh, video hoặc gif cho bot. Bot sẽ trả lời bằng phương tiện được đánh dấu.
 
-The bot commands `/set` and `/get` can set and get the value of the configuration variables. The commands are simple and intuitive. The bot will show you the usage if you send an incorrect argument.
+Các lệnh bot `/set` và `/get` có thể đặt và lấy giá trị của các biến cấu hình. Các lệnh rất đơn giản và trực quan. Bot sẽ hiển thị cho bạn cách sử dụng nếu bạn gửi một đối số không chính xác.
 
-Syntax for `/set` ➜  `/set key: value`
-Syntax for `/get` ➜  `/get key`
+Cú pháp cho `/set` ➜  `/set key: value`
+Cú pháp cho `/get` ➜  `/get key`
 
 """
 
 COMMANDS = {
-    "start": "start the bot or check if alive",
-    "set": "set the value for a config variable",
-    "get": "know the value of a config variable",
-    "help": "learn how to use the bot",
+    "start": "khởi động bot hoặc kiểm tra xem còn sống không",
+    "set": "đặt giá trị cho một biến cấu hình",
+    "get": "biết giá trị của một biến cấu hình",
+    "help": "học cách sử dụng bot",
 }
 
 config = Config()
