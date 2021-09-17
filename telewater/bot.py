@@ -22,9 +22,9 @@ async def bot_help(event):
 
 async def set_config(event):
 
-    notes = f"""This command is used to set the value of a config variable.
-    Usage `/set key: val`
-    Example `/set watermark: https://link/to/watermark.png`
+    notes = f"""Lệnh này được sử dụng để đặt giá trị của một biến cấu hình.
+    Sử dụng `/set key: val`
+    Ví dụ `/set watermark: https://link/to/watermark.png`
     {gen_kv_str()}
     """.replace(
         "    ", ""
@@ -37,13 +37,13 @@ async def set_config(event):
         splitted = pos_arg.split(":", 1)
 
         if not len(splitted) == 2:
-            raise ValueError("Incorrect argument format")
+            raise ValueError("Định dạng đối số không chính xác")
 
         key, value = [item.strip() for item in splitted]
 
         config_dict = conf.config.dict()
         if not key in config_dict.keys():
-            raise ValueError(f"The key {key} is not a valid key in configuration.")
+            raise ValueError(f"Khóa {key} không phải là một khóa hợp lệ trong cấu hình.")
 
         config_dict[key] = value
         print(config_dict)
@@ -54,7 +54,7 @@ async def set_config(event):
         if key == "watermark":
             cleanup("image.png")
             download_image(url=value)
-        await event.respond(f"The value of {key} was set to {value}")
+        await event.respond(f"Giá trị của {key} đã được đặt thành {value}")
 
     except ValueError as err:
         print(err)
@@ -68,9 +68,9 @@ async def set_config(event):
 
 async def get_config(event):
 
-    notes = f"""This command is used to get the value of a configuration variable.
-    Usage `/get key`
-    Example `/get x_off`
+    notes = f"""Lệnh này được sử dụng để lấy giá trị của một biến cấu hình.
+    Sử dụng `/get key`
+    Ví dụ `/get x_off`
     {gen_kv_str()}
     """.replace(
         "    ", ""
@@ -94,7 +94,7 @@ async def get_config(event):
 async def watermarker(event):
 
     if not (event.gif or event.photo or event.video):
-        await event.respond("File not supported.")
+        await event.respond("Tệp không được hỗ trợ.")
         return
 
     org_file = stamp(await event.download_media(""), user=str(event.sender_id))
