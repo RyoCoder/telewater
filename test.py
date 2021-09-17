@@ -16,7 +16,7 @@ API_HASH = os.getenv("API_HASH")
 
 
 class TestData(BaseModel):
-    """This class defines the schema of the test.yml file"""
+    """Lớp này xác định lược đồ của tệp test.yml"""
 
     bots: List[str]
     video_file: str
@@ -34,20 +34,20 @@ for items in td.bots:
 async def general_test():
     async with TelegramClient("telwater_user", API_ID, API_HASH) as client:
         me = await client.get_me()
-        print(f"Logged in as {me.first_name}")
+        print(f"Đăng nhập với tư cách {me.first_name}")
 
         message_obj = await client.send_file("me", td.video_file)
-        print("Uploaded the file to Saved Messages")
+        print("Đã tải tệp lên Tin nhắn đã lưu")
 
         for bot in td.bots:
             await client.send_message(bot, "/start")
 
-        print("Invoked /start for all the bots")
+        print("Được mời /start cho tất cả các bot")
 
         for bot in td.bots:
             await client.forward_messages(bot, message_obj)
 
-        print("Forwarded the message to saved messages")
+        print("Đã chuyển tiếp tin nhắn đến các tin nhắn đã lưu")
 
 
 if __name__ == "__main__":
