@@ -31,7 +31,7 @@ def verbosity_callback(value: bool):
     else:
         level = logging.WARNING
     logging.basicConfig(level=level)
-    logging.info("Verbosity turned on. \nThis is suitable for debugging.\n")
+    logging.info("Tính chi tiết đã được bật. \nĐiều này phù hợp để gỡ lỗi.\n")
 
 
 @app.command()
@@ -86,9 +86,7 @@ def main(
         help="Show version and exit.",
     ),
 ):
-    """A telegram bot that applies watermark on images, gifs and videos.
-
-    For detailed docs read : https://github.com/aahnik/telewater
+    """Một bot telegram áp dụng hình mờ trên hình ảnh, gif và video.
     """
 
     if FAKE:
